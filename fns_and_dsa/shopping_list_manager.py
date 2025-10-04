@@ -18,13 +18,15 @@ def main():
             continue  # Skip to the next iteration of the loop
  
         if choice == 1:
-            item = input("enter the item to add:")
-            shopping_list.append(item)
+            item = input("enter the item to add:").strip()
+            if item and not item.isdigit():
+             shopping_list.append(item)
             print(f"{item} has been added to the list.")
             pass
         elif choice == 2:
-            item = input ("Enter the item to remove: ")
-            if item in shopping_list:
+            item = input ("Enter the item to remove: ").strip()
+            if item and not item.isdigit():
+             if item in shopping_list:
                 shopping_list.remove(item)
                 print(f"{item} has been removed from the list")
             else:
